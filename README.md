@@ -8,4 +8,6 @@ Raquel Amaral de Oliveira -- RM 566491
 
 ## Proposta
 
-TO-DO
+### Identidade visual 
+segue o link abaixo para vizualização:
+https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1 
