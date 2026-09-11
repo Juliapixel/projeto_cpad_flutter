@@ -1,10 +1,10 @@
 # projeto_cpad
 
-Allan de Souza Cardoso -- RM 561721 \
-Eduardo Bacelar Rudner -- RM 564925 \
-Giovana Dias Valentini -- RM 562390 \
-Júlia Borges Paschoalinoto -- RM 564725 \
-Raquel Amaral de Oliveira -- RM 566491
+Allan de Souza Cardoso -- RM 561721 -> Identidade Visual
+Eduardo Bacelar Rudner -- RM 564925 -> Documentação
+Giovana Dias Valentini -- RM 562390 -> Desenvolvimento da marca
+Júlia Borges Paschoalinoto -- RM 564725 -> GitHub e flutter
+Raquel Amaral de Oliveira -- RM 566491 -> Ideia de venda/pitch
 
 ## Proposta
 
@@ -44,7 +44,7 @@ A proposta também está relacionada ao conceito da marca Alva, que representa a
 
 ### 2- Público-alvo
 
-O público-alvo da Alva são estudantes que desejam acompanhar sua rotina acadêmica e seu processo de aprendizagem de maneira mais organizada.
+O público-alvo da Alva são escolas que desejam melhorar a rotina acadêmica de seus alunos e seu processo de aprendizagem de maneira mais organizada.
 
 O aplicativo foi pensado para estudantes que precisam consultar diferentes informações durante sua rotina, como:
 
