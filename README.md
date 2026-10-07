@@ -11,14 +11,9 @@
 ## Proposta
 
 ### Identidade visual
-<<<<<<< HEAD
-segue o link abaixo para vizualização:
-https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1
-=======
 
 segue o link abaixo para vizualização:
 <https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1>
->>>>>>> c59482c (doc: corrigir formatação do README)
 
 ### Ideia de Venda
 
