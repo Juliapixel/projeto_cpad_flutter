@@ -1,4 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:alva/screens/courses/courses_screen.dart';
+import 'package:alva/screens/explore/explore_screen.dart';
+import 'package:alva/screens/home/home_screen.dart';
+import 'package:alva/screens/profile/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Alva',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,15 +34,15 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Color(0xFF9A95E3)),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: DefaultTabController(length: 4, child: AppWidget(title: 'Alva')),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class AppWidget extends StatefulWidget {
+  const AppWidget({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -50,10 +56,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<AppWidget> createState() => _AppWidgetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _AppWidgetState extends State<AppWidget> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -76,46 +82,49 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Color(0xFF9A95E3), Colors.white],
+            stops: [0.0, 0.63, 1.0],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: TabBarView(
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            HomeScreen(),
+            ExploreScreen(),
+            CoursesScreen(),
+            ProfileScreen(),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.transparent, Color(0x10000000)],
+              begin: AlignmentGeometry.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: TabBar(
+            labelColor: Color(0xFF5F5DEC),
+            unselectedLabelColor: Color(0xFF94A3B8),
+            tabs: [
+              Tab(icon: Icon(Icons.home_outlined), text: "Início"),
+              Tab(icon: Icon(Icons.explore_outlined), text: "Explorar"),
+              Tab(icon: Icon(Icons.menu_book_outlined), text: "Cursos"),
+              Tab(icon: Icon(Icons.person_outlined), text: "Perfil"),
+            ],
+          ),
+        ),
       ),
     );
   }
