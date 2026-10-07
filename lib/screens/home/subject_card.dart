@@ -17,23 +17,23 @@ class UpcomingClass extends StatelessWidget {
         Text(
           subject.toUpperCase(),
           maxLines: 2,
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
+          style: TextTheme.of(context).titleSmall,
         ),
         Text(
           time.toUpperCase(),
-          style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+          style: TextTheme.of(context).labelMedium,
         ),
-        Text(location, style: TextStyle(fontSize: 11)),
+        Text(location, style: TextTheme.of(context).labelSmall),
       ],
     );
   }
 }
 
-class ClassesCard extends StatelessWidget {
+class SubjectCard extends StatelessWidget {
   final UpcomingClass firstClass;
   final UpcomingClass secondClass;
 
-  const ClassesCard({
+  const SubjectCard({
     super.key,
     required this.firstClass,
     required this.secondClass,
@@ -42,7 +42,7 @@ class ClassesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardContainer(
-      height: 100,
+      height: 104,
       child: Row(
         spacing: 16,
         crossAxisAlignment: CrossAxisAlignment.center,

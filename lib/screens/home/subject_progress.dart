@@ -1,5 +1,7 @@
+import 'package:alva/providers/subject_progress_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:alva/components/card_container.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class _ProgressBar extends CustomPainter {
   final double progress;
@@ -39,21 +41,23 @@ class ProgressCard extends StatelessWidget {
     super.key,
     required this.subject,
     required this.progress,
-    this.onTap
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = TextTheme.of(context);
+
     Widget progressBar = Column(
       spacing: 4,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Progresso"),
+            Text("Progresso", style: textTheme.labelSmall),
             Text(
               "${(progress * 100).toStringAsFixed(0)}%",
-              style: TextStyle(color: Color(0xFF0D9488)),
+              style: textTheme.labelSmall?.copyWith(color: Color(0xFF0D9488)),
             ),
           ],
         ),
@@ -71,9 +75,7 @@ class ProgressCard extends StatelessWidget {
           subject,
           maxLines: 2,
           textAlign: TextAlign.start,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+          style: textTheme.titleSmall?.copyWith(
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -84,6 +86,26 @@ class ProgressCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       onTap: onTap,
       child: CardContainer(width: 256, height: 100, child: contents),
+    );
+  }
+}
+
+class SubjectProgress extends ConsumerWidget {
+  const SubjectProgress({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final progresses = ref.watch(subjectProgressProvider).value ?? [ProgressCard(subject: "Carregando...", progress: 0.0)];
+    return SizedBox(
+      height: 100,
+      child: ListView.separated(
+        clipBehavior: Clip.none,
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemBuilder: (context, i) => progresses[i],
+        separatorBuilder: (context, i) => SizedBox(width: 12),
+        itemCount: progresses.length,
+      ),
     );
   }
 }
