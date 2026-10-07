@@ -1,0 +1,71 @@
+name: 🛠 Android CI / Build & Release APK
+
+on:
+  push:
+    branches: [ main ]
+    tags:    [ 'v*.*.*' ]
+  pull_request:
+
+permissions:
+  contents: write   # allow creating/updating Releases & uploading assets
+  actions:  read    # allow pulling marketplace actions
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Cache pub deps
+        uses: actions/cache@v5
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: ${{ runner.os }}-pub-
+
+      - name: Setup Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test --coverage
+
+      - name: Build APKs
+        run: flutter build apk --release --split-per-abi
+
+      - name: Prepare artifacts
+        run: |
+          mkdir -p artifacts
+          cp build/app/outputs/flutter-apk/*.apk artifacts/
+
+      - name: Create or update Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: ncipollo/release-action@v1
+        with:
+          tag:       ${{ github.ref_name }}
+          name:      Release ${{ github.ref_name }}
+          artifacts: artifacts/*.apk
+          token:     ${{ secrets.GITHUB_TOKEN }}
+          # Update the release if it already exists (e.g. on a re-run),
+          # replacing the APKs but keeping its name, notes and flags.
+          allowUpdates:               true
+          omitNameDuringUpdate:       true
+          omitBodyDuringUpdate:       true
+          omitDraftDuringUpdate:      true
+          omitPrereleaseDuringUpdate: true
