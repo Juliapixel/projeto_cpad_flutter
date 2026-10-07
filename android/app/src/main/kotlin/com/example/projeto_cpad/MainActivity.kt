@@ -1,4 +1,4 @@
-package com.example.projeto_cpad
+package com.example.alva
 
 import io.flutter.embedding.android.FlutterActivity
 

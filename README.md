@@ -1,4 +1,4 @@
-# projeto_cpad
+# Alva
 
 Allan de Souza Cardoso -- RM 561721 -> Identidade Visual
 Eduardo Bacelar Rudner -- RM 564925 -> Documentação
@@ -8,9 +8,9 @@ Raquel Amaral de Oliveira -- RM 566491 -> Ideia de venda/pitch
 
 ## Proposta
 
-### Identidade visual 
+### Identidade visual
 segue o link abaixo para vizualização:
-https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1 
+https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1
 
 ### Ideia de Venda
 
