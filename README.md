@@ -1,16 +1,24 @@
 # Alva
 
-Allan de Souza Cardoso -- RM 561721 -> Identidade Visual
-Eduardo Bacelar Rudner -- RM 564925 -> Documentação
-Giovana Dias Valentini -- RM 562390 -> Desenvolvimento da marca
-Júlia Borges Paschoalinoto -- RM 564725 -> GitHub e flutter
-Raquel Amaral de Oliveira -- RM 566491 -> Ideia de venda/pitch
+| Nome | RM | Papel CP3 |
+| --- | --- | --- |
+| Allan de Souza Cardoso | 561721 | Identidade Visual |
+| Eduardo Bacelar Rudner | 564925 | Documentação |
+| Giovana Dias Valentini | 562390 | Desenvolvimento da marca |
+| Júlia Borges Paschoalinoto | 564725 | GitHub e flutter |
+| Raquel Amaral de Oliveira | 566491 | Ideia de venda/pitch |
 
 ## Proposta
 
 ### Identidade visual
+<<<<<<< HEAD
 segue o link abaixo para vizualização:
 https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1
+=======
+
+segue o link abaixo para vizualização:
+<https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1>
+>>>>>>> c59482c (doc: corrigir formatação do README)
 
 ### Ideia de Venda
 
