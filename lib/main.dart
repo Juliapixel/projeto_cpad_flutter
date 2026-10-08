@@ -1,12 +1,28 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:alva/screens/courses/courses_screen.dart';
 import 'package:alva/screens/explore/explore_screen.dart';
 import 'package:alva/screens/home/home_screen.dart';
 import 'package:alva/screens/profile/profile_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: "assets/.env.example", overrideWithFiles: ["assets/.env"], isOptional: true);
+  if (Platform.isAndroid) {
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: dotenv.env["FLUTTER_API_KEY"]!,
+        appId: dotenv.env["FLUTTER_APP_ID"]!,
+        messagingSenderId: dotenv.env["FLUTTER_MESSAGING_SENDER_ID"]!,
+        projectId: "alva-cpad",
+      ),
+    );
+  }
   // GoogleFonts.config.allowRuntimeFetching = false;
   runApp(ProviderScope(child: const MyApp()));
 }
