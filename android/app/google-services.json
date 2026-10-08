@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "812737885636",
+    "project_id": "alva-cpad",
+    "storage_bucket": "alva-cpad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812737885636:android:21c9d8cb531ea13ea12091",
+        "android_client_info": {
+          "package_name": "com.example.alva"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQmhTq7JWAhbe0gXw7S3SuR4KSTpBg4qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
