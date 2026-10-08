@@ -23,7 +23,6 @@ void main() async {
       ),
     );
   }
-  // GoogleFonts.config.allowRuntimeFetching = false;
   runApp(ProviderScope(child: const MyApp()));
 }
 

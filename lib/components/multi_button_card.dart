@@ -14,7 +14,7 @@ enum MultiButtonKind {
 class MultiButtonItem extends StatelessWidget {
   final String text;
   final String? subText;
-  final IconData icon;
+  final IconData? icon;
   final IconData actionIcon;
   final MultiButtonKind kind;
   final void Function()? onTap;
@@ -23,7 +23,7 @@ class MultiButtonItem extends StatelessWidget {
     super.key,
     required this.text,
     this.subText,
-    this.icon = Icons.comment_outlined,
+    this.icon,
     this.actionIcon = Icons.chevron_right,
     this.kind = MultiButtonKind.normal,
     this.onTap,
@@ -33,41 +33,48 @@ class MultiButtonItem extends StatelessWidget {
   Widget build(BuildContext context) {
     TextTheme textTheme = TextTheme.of(context);
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.start,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       spacing: 12,
-      children: [
-        Container(
-          width: 38,
-          height: 38,
-          decoration: BoxDecoration(
-            color: kind.iconBackgroundColor,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(icon, color: kind.iconColor, size: 24),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 2,
-            children:
-                [
-                  Text(
-                    text,
-                    style: textTheme.bodyMedium?.copyWith(
-                      fontWeight: .w600,
-                      fontSize: 13,
+      children:
+          (icon != null
+              ? <Widget>[
+                  Container(
+                    width: 38,
+                    height: 38,
+                    decoration: BoxDecoration(
+                      color: kind.iconBackgroundColor,
+                      borderRadius: BorderRadius.circular(8),
                     ),
+                    child: Icon(icon, color: kind.iconColor, size: 24),
                   ),
-                ] +
-                (subText != null
-                    ? [Text(subText!, style: textTheme.bodySmall)]
-                    : []),
-          ),
-        ),
+                ]
+              : <Widget>[]) +
+          [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 2,
+                children:
+                    [
+                      Text(
+                        text,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: textTheme.bodyMedium?.copyWith(
+                          fontWeight: .w600,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ] +
+                    (subText != null
+                        ? [Text(subText!, style: textTheme.bodySmall)]
+                        : []),
+              ),
+            ),
 
-        Icon(actionIcon, color: Color(0xFF94A3B8), size: 24),
-      ],
+            Icon(actionIcon, color: Color(0xFF94A3B8), size: 24),
+          ],
     );
   }
 }
