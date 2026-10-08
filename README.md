@@ -1,19 +1,46 @@
 # Alva
 
-| Nome | RM | Papel CP3 |
-| --- | --- | --- |
-| Allan de Souza Cardoso | 561721 | Identidade Visual |
-| Eduardo Bacelar Rudner | 564925 | Documentação |
-| Giovana Dias Valentini | 562390 | Desenvolvimento da marca |
-| Júlia Borges Paschoalinoto | 564725 | GitHub e flutter |
-| Raquel Amaral de Oliveira | 566491 | Ideia de venda/pitch |
+| Nome                       | RM     | Papel CP4                | Papel CP5                |
+| -------------------------- | ------ | ------------------------ | ------------------------ |
+| Allan de Souza Cardoso     | 561721 | Identidade Visual        | Evoluir design do Figma  |
+| Eduardo Bacelar Rudner     | 564925 | Documentação             | Code review              |
+| Giovana Dias Valentini     | 562390 | Desenvolvimento da marca | Code review              |
+| Júlia Borges Paschoalinoto | 564725 | GitHub e flutter         | Implementação em Flutter |
+| Raquel Amaral de Oliveira  | 566491 | Ideia de venda/pitch     | Code review              |
+
+## Como rodar
+
+> [!warning]
+>
+> Não foi testado no Windows; o app foi feito para ser rodado primariamente no Android
+
+```bash
+flutter upgrade
+flutter pub get
+flutter run
+```
+
+## Evolução
+
+### CP4 -> CP5
+
+- Implementação de leitura de dados do Firestore
+- Utilização do Riverpod para camada de dados
+- Evolução do design Figma com todas as telas principais e componentes
+- Implementação fiel e quase completa do Figma
 
 ## Proposta
 
 ### Identidade visual
 
-segue o link abaixo para vizualização:
-<https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1>
+[Design do figma](https://www.figma.com/design/yTaqr6VNFgVUuBLwJJSNmU/Sem-t%C3%ADtulo?node-id=0-1&t=dxpS3dfLT5WEVZ3y-1)
+
+#### Screenshots
+
+|                                   |                                       |
+| --------------------------------- | ------------------------------------- |
+| ![Home](screenshots/home.png)     | ![Explorar](screenshots/explorar.png) |
+| ![Cursos](screenshots/cursos.png) | ![Perfil](screenshots/perfil.png)     |
 
 ### Ideia de Venda
 
