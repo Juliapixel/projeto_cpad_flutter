@@ -20,6 +20,15 @@ flutter pub get
 flutter run
 ```
 
+## Evolução
+
+### CP4 -> CP5
+
+- Implementação de leitura de dados do Firestore
+- Utilização do Riverpod para camada de dados
+- Evolução do design Figma com todas as telas principais e componentes
+- Implementação fiel e quase completa do Figma
+
 ## Proposta
 
 ### Identidade visual
