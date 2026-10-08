@@ -1,15 +1,20 @@
+import 'package:alva/providers/courses_provider.dart';
 import 'package:alva/screens/home/popular_courses.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final popularCoursesProvider = FutureProvider<List<PopularCourse>>((ref) async {
-  return await Future.delayed(const Duration(seconds: 3), () {
-    return List.from(() sync* {
-      for (var i = 0; i < 5; i++) {
-        yield PopularCourse(
-          title: "Lorem ipsum dolor sit amet",
-          subtitle: "Lorem Ipsum",
-        );
-      }
-    }());
-  });
+  final popular = await FirebaseFirestore.instance
+      .collection("courses")
+      .where("popular", isEqualTo: true)
+      .get();
+  return popular.docs
+      .map(
+        (d) => Course(
+          displayName: d.get("displayName"),
+          professor: d.get("professor"),
+        ),
+      )
+      .map((c) => PopularCourse(title: c.displayName, subtitle: c.professor,))
+      .toList();
 });

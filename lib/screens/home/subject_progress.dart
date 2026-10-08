@@ -95,7 +95,7 @@ class SubjectProgress extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final progresses = ref.watch(subjectProgressProvider).value ?? [ProgressCard(subject: "Carregando...", progress: 0.0)];
+    final List<ProgressCard> progresses = ref.watch(subjectProgressProvider("mtH9DriTqApzcpNfZZro")).value ?? [ProgressCard(subject: "Carregando...", progress: 0.0)];
     return SizedBox(
       height: 100,
       child: ListView.separated(
